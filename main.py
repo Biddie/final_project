@@ -1,6 +1,6 @@
 # Main Entrypoint
 from parameters.parameters import (
-    author_file_path, autogluon_params
+    file_path, autogluon_params
 )
 from data_ingestion.ingest import get_data
 from model_building.build_model import autogluon_model_build
@@ -10,15 +10,13 @@ import time
 print("Starting Data Ingestion")
 print("Starting Authors Data...")
 start_time = time.time()
-author_data_new = get_data(author_file_path)
+author_data_new = get_data(file_path)
 end_time = time.time()
 print(f"Execution time for Author Data Ingestion is {end_time - start_time} seconds")
-print(f"Size of Author Data is {author_data_new.shape}")
+#print(f"Size of Author Data is {author_data_new.shape}")
 print(author_data_new.head())
 
-# Stage 1
-
-# Stage 2 - Model Building
+# Stage 1 - Model Building
 print("Starting Model Builidng...")
 start_time = time.time()
 train_data, test_data, predictor = (
@@ -29,8 +27,7 @@ print(f"Execution time for Model Building is {end_time - start_time} seconds")
 print(f"Size of Train Data is {train_data.shape}")
 print(f"Size of Test Data is {test_data.shape}")
 
-
-# Stage 3 - Model Evaluation
+# Stage 2 - Model Evaluation
 print("Starting Model Evaluation...")
 start_time = time.time()
 print(predictor.leaderboard(silent=True))
