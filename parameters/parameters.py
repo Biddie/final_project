@@ -8,7 +8,7 @@ main_path = os.getcwd()
 file_path = os.path.join(os.path.join(main_path, DATA_FOLDER), FILE_NAME)
 
 autogluon_params = {
-    "save_path": 'artefacts/models_author_regression',
+    "save_path": 'model',
     "time_limit": 60,
     "label": "sentiment"
     #"problem_type": "sentiment"

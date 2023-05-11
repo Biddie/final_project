@@ -32,7 +32,7 @@ inpute_data = pd.DataFrame([input_data_dict])
 
 st.write(inpute_data)
 
-save_path = "artefacts"
+save_path = "model"
 
 save_model_predictor = TabularPredictor.load(save_path)
 
